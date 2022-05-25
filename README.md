@@ -1,5 +1,5 @@
 # Blockchain and decentralized technologies homework
-This is the DistributedLab blockchain course homework repository. Explanations for each task separately are given below.
+😃 😎 ✌️
 
 ## Large numbers
 1. It's pretty obvious that the number of unique n-byte keys is basically $2^n$ - for each byte we have two options - 1, 0. For calculating 2 raised to the power of n we will use the "Binary Exponentiation" algorythm which allows us to compute the answer in O(log n). 
@@ -13,8 +13,10 @@ This is the DistributedLab blockchain course homework repository. Explanations f
       $ $ $ $ $ $ $ \approx $ 682 s. for 32 bytes  
    
    For the bigger numbers waiting time is ... pretty large. Let's estimate it. We can easily get the results for some smaller key size values, fit them into some exponential model and then extrapolate it.
+  
+   Green point are our dataset and curve is our exponential model.
    
-   ![Alt text](hw1/graph.jpg?raw=true "Given data and approximation function")
+   ![Alt text](https://github.com/rureirureirurei/DistributedLab-homework/blob/main/hw1/graph.png?raw=true)
    
    It turns out, that $t = 0.0000003⋅1.97^{size - 0.45}$ fits our dataset pretty well. Even though further research can be done and the quality can be improved, we can dare to roughly estimate time needed for bruteforcing keys with the larger sizes. 
    
@@ -22,4 +24,4 @@ This is the DistributedLab blockchain course homework repository. Explanations f
       $ $ $ $ $ $ $ \approx $ $10^{61}$ years for 256 bytes  
       $ $ $ $ $ $ $ \approx $ $10^{1200}$ years for 4096 bytes  
 
-   Now it's obvious, that bruteforcing is practically unacceptable for such keys.
+   Now it's clear, that bruteforcing is practically unacceptable for such keys.
