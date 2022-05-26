@@ -16,8 +16,8 @@
    
    It turns out, that $t = 0.0000003⋅1.97^{size - 0.45}$ fits our dataset pretty well. Even though further research can be done and the quality can be improved, we can dare to roughly estimate the time needed for brute-forcing keys with the larger sizes. 
    
-      $ $ $ $ $ $ $ \approx $ 49163 years for 64 bytes   
-      $ $ $ $ $ $ $ \approx $ $10^{61}$ years for 256 bytes  
-      $ $ $ $ $ $ $ \approx $ $10^{1200}$ years for 4096 bytes  
+      $ $ $ $ $ $ $ \\approx $ 49163 years for 64 bytes   
+      $ $ $ $ $ $ $ \\approx $ $10^{61}$ years for 256 bytes  
+      $ $ $ $ $ $ $ \\approx $ $10^{1200}$ years for 4096 bytes  
 
    Now it's clear, that brute-forcing is practically unacceptable for such problem.
