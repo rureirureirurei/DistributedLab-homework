@@ -1,7 +1,19 @@
 ## HEX <-> INT
 
-The given implementation is pretty straightforward - the module with needed functions is in the file ``module.py``. The testing part is in the ``test.py``.  
+The given implementation is pretty straightforward - the module with needed functions is in the file `module.py`.  
+The testing part is in the `test.py`.  
 
 For different translations, we will use naive algorithms with the willingness to minimize our usage of built-in python functions.
 
-For testing we will use some prewritten data.
+### Usage
+
+For the testing, you can use prewritten code:  
+`$ python3 test.py`  
+If all the tests passed correctly, you should see:  
+`All tests passed OK`
+
+You can also add your tests into the script - there is a dictionary `TESTSET` where each test consists of:
+ - `hex` (hex value)
+ - `size` (number of byte "cells")
+ - `lendian` (little-endian int value)
+ - `bendian` (big-endian int value)
