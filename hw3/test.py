@@ -1,4 +1,4 @@
-from SHA256 import generate_hash
+from SHA256 import sha256hash
 
 if __name__ == '__main__':
     TESTSET = [
@@ -10,6 +10,6 @@ if __name__ == '__main__':
 
 
     for test in TESTSET:
-        assert generate_hash(test['val']).hex() == test['hash']
+        assert sha256hash(test['val']).hex() == test['hash']
 
     print('All tests passed')
