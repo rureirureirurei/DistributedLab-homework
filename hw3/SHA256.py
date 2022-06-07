@@ -16,7 +16,7 @@ K = [
     0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
 ]
 
-def generate_hash(message: bytearray) -> bytearray:
+def sha256hash(message: bytearray) -> bytearray:
     if isinstance(message, str):
         message = bytearray(message, 'ascii')
     elif isinstance(message, bytes):
@@ -28,10 +28,9 @@ def generate_hash(message: bytearray) -> bytearray:
     while (len(message) * 8 + 64) % 512 != 0:
         message.append(0x00)
  
-    message += length.to_bytes(8, 'big') # pad to 8 bytes or 64 bits
-    
+    message += length.to_bytes(8, 'big')
     blocks = []
-    for i in range(0, len(message), 64): # 64 bytes is 512 bits
+    for i in range(0, len(message), 64):
         blocks.append(message[i:i+64])
 
     h0 = 0x6a09e667
@@ -43,15 +42,10 @@ def generate_hash(message: bytearray) -> bytearray:
     h6 = 0x1f83d9ab
     h7 = 0x5be0cd19
 
-    # SHA-256 Hash Computation
     for message_block in blocks:
-        # Prepare message schedule
         message_schedule = []
         for t in range(0, 64):
             if t <= 15:
-                # adds the t'th 32 bit word of the block,
-                # starting from leftmost word
-                # 4 bytes at a time
                 message_schedule.append(bytes(message_block[t * 4:(t * 4) + 4]))
             else:
                 term1 = _sigma1(int.from_bytes(message_schedule[t - 2], 'big'))
@@ -89,7 +83,7 @@ def generate_hash(message: bytearray) -> bytearray:
             c = b
             b = a
             a = (t1 + t2) % 2 ** 32
-
+            
         h0 = (h0 + a) % 2 ** 32
         h1 = (h1 + b) % 2 ** 32
         h2 = (h2 + c) % 2 ** 32
