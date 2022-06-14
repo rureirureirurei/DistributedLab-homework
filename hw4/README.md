@@ -24,7 +24,7 @@ Just create a `RSA` class and use it's methods.
     
 We can see that Eve can't see our cyphered message.
 
-If you want to check someone's public key, just do:
+You can't change the keypair, but if you want to check someone's public key, just do:
 
     >>> A.public_key = (2,3)
     Exception: You are not allowed to alter generated keys
