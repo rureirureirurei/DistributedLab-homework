@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Международные Денежные Переводы С Карты на Карту</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../scss/styles.scss" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="../assets/img/navbar-logo.png" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="./index.html">Выйти</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Про сервис</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./myTrans.html">Мои переводы</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading text-black"><br>Укажите необходимую информацию</div>
+                  <div class="row" style="margin-top: 50px;">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-5">
+                        <form method="GET">
+                            <SCRIPT>
+                                function testResults (form) {
+                                    var number = form.ps1.value;
+                                    var date = form.ps2.value;
+                                    var cvv = form.ps3.value;
+                                    let xhr = new XMLHttpRequest();
+                                    params="number="+number+"&date="+date+"&cvv="+cvv;
+                                    xhr.open("GET", "http://localhost:80/auth?"+params);
+                                    xhr.send();
+                                    xhr.onload = () => console.log(xhr.responseText);
+                                }
+                            </SCRIPT>
+                                <label class="text-muted" style="margin-bottom: 5px; margin-top:10px" >Данные вашего платежного средства</label>
+                                <input type="number" name="ps1" class="form-control" style="margin-bottom: 5px" id="cardNumber" placeholder="Номер карты *">
+                                <input type="text" name="ps2" class="form-control" style="margin-bottom: 5px" id="cardDate" placeholder="Дата истечения карты *">
+                                <input type="number" name="ps3" class="form-control" style="margin-bottom: 5px" id="cardCVV" placeholder="CVV *">
+                                <small style="margin-top: 10px" class="form-text text-muted">Ваши данные надежно защищены.</small>
+
+                            <button type="submit" style="margin-top: 50px; position:absolute; left:40%" class="btn btn-primary btn-xl text-black" id = "submitButton" onclick="testResults(this.form)">Совершить перевод</button>
+                        </form>
+                    </div>
+                    <div class="col-sm-5">
+                        <form>
+                            <div class="form-group">
+                            <label for="IBAN" class="text-muted" style="margin-bottom: 5px; margin-top:10px"> Данные получателя</label>
+                            <select class="form-control">
+                                <option>Выберите страну банка получателя</option>
+                                <option>Австралия 🇦🇺</option>
+                                <option>Австрия 🇦🇹</option>
+                                <option>Азербайджан 🇦🇿</option>
+                                <option>Албания 🇦🇱</option>
+                                <option>Алжир 🇩🇿</option>
+                                <option>Ангола 🇦🇴</option>
+                                <option>Андорра 🇦🇩</option>
+                                <option>Антигуа и Барбуда 🇦🇬</option>
+                                <option>Аргентина 🇦🇷</option>
+                                <option>Армения 🇦🇲</option>
+                                <option>Афганистан 🇦🇫</option>
+                                <option>Багамские острова 🇧🇸</option>
+                                <option>Бангладеш 🇧🇩</option>
+                                <option>Барбадос 🇧🇧</option>
+                                <option>Бахрейн 🇧🇭</option>
+                                <option>Белиз 🇧🇿</option>
+                                <option>Белоруссия 🇧🇾</option>
+                                <option>Бельгия 🇧🇪</option>
+                                <option>Бенин 🇧🇯</option>
+                                <option>Болгария 🇧🇬</option>
+                                <option>Боливия 🇧🇴</option>
+                                <option>Босния и Герцеговина 🇧🇦</option>
+                                <option>Ботсвана 🇧🇼</option>
+                                <option>Бразилия 🇧🇷</option>
+                                <option>Бруней 🇧🇳</option>
+                                <option>Буркина-Фасо 🇧🇫</option>
+                                <option>Бурунди 🇧🇮</option>
+                                <option>Бутан 🇧🇹</option>
+                                <option>Вануату 🇻🇺</option>
+                                <option>Ватикан 🇻🇦</option>
+                                <option>Великобритания 🇬🇧</option>
+                                <option>Венгрия 🇭🇺</option>
+                                <option>Венесуэла 🇻🇪</option>
+                                <option>Восточный Тимор 🇹🇱</option>
+                                <option>Вьетнам 🇻🇳</option>
+                                <option>Габон 🇬🇦</option>
+                                <option>Гаити 🇭🇹</option>
+                                <option>Гайана 🇬🇾</option>
+                                <option>Гамбия 🇬🇲</option>
+                                <option>Гана 🇬🇭</option>
+                                <option>Гватемала 🇬🇹</option>
+                                <option>Гвинея 🇬🇳</option>
+                                <option>Гвинея-Бисау 🇬🇼</option>
+                                <option>Германия 🇩🇪</option>
+                                <option>Гондурас 🇭🇳</option>
+                                <option>Палестина 🇵🇸</option>
+                                <option>Гренада 🇬🇩</option>
+                                <option>Греция 🇬🇷</option>
+                                <option>Грузия 🇬🇪</option>
+                                <option>Дания 🇩🇰</option>
+                                <option>Демократическая Республика Конго 🇨🇩</option>
+                                <option>Джибути 🇩🇯</option>
+                                <option>Доминика 🇩🇲</option>
+                                <option>Доминиканская Республика 🇩🇴</option>
+                                <option>Египет 🇪🇬</option>
+                                <option>Замбия 🇿🇲</option>
+                                <option>Западная Сахара 🇪🇭</option>
+                                <option>Зимбабве 🇿🇼</option>
+                                <option>Израиль 🇮🇱</option>
+                                <option>Индия 🇮🇳</option>
+                                <option>Индонезия 🇮🇩</option>
+                                <option>Иордания 🇯🇴</option>
+                                <option>Ирак 🇮🇶</option>
+                                <option>Иран 🇮🇷</option>
+                                <option>Ирландия 🇮🇪</option>
+                                <option>Исландия 🇮🇸</option>
+                                <option>Испания 🇪🇸</option>
+                                <option>Италия 🇮🇹</option>
+                                <option>Йемен 🇾🇪</option>
+                                <option>Кабо-Верде 🇨🇻</option>
+                                <option>Казахстан 🇰🇿</option>
+                                <option>Камбоджа 🇰🇭</option>
+                                <option>Камерун 🇨🇲</option>
+                                <option>Канада 🇨🇦</option>
+                                <option>Катар 🇶🇦</option>
+                                <option>Кения 🇰🇪</option>
+                                <option>Кипр 🇨🇾</option>
+                                <option>Киргизия 🇰🇬</option>
+                                <option>Кирибати 🇰🇮</option>
+                                <option>Китай 🇨🇳</option>
+                                <option>КНДР 🇰🇵</option>
+                                <option>Колумбия 🇨🇴</option>
+                                <option>Коморские острова 🇰🇲</option>
+                                <option>Косово 🇽🇰</option>
+                                <option>Коста-Рика 🇨🇷</option>
+                                <option>Кот-д’Ивуар 🇨🇮</option>
+                                <option>Куба 🇨🇺</option>
+                                <option>Кувейт 🇰🇼</option>
+                                <option>Лаос 🇱🇦</option>
+                                <option>Латвия 🇱🇻</option>
+                                <option>Лесото 🇱🇸</option>
+                                <option>Либерия 🇱🇷</option>
+                                <option>Ливан 🇱🇧</option>
+                                <option>Ливия 🇱🇾</option>
+                                <option>Литва 🇱🇹</option>
+                                <option>Лихтенштейн 🇱🇮</option>
+                                <option>Люксембург 🇱🇺</option>
+                                <option>Маврикий 🇲🇺</option>
+                                <option>Мавритания 🇲🇷</option>
+                                <option>Мадагаскар 🇲🇬</option>
+                                <option>Малави 🇲🇼</option>
+                                <option>Малайзия 🇲🇾</option>
+                                <option>Мали 🇲🇱</option>
+                                <option>Мальдивы 🇲🇻</option>
+                                <option>Мальта 🇲🇹</option>
+                                <option>Марокко 🇲🇦</option>
+                                <option>Маршалловы острова 🇲🇭</option>
+                                <option>Мексика 🇲🇽</option>
+                                <option>Мозамбик 🇲🇿</option>
+                                <option>Молдавия 🇲🇩</option>
+                                <option>Монако 🇲🇨</option>
+                                <option>Монголия 🇲🇳</option>
+                                <option>Мьянма 🇲🇲</option>
+                                <option>Намибия 🇳🇦</option>
+                                <option>Науру 🇳🇷</option>
+                                <option>Непал 🇳🇵</option>
+                                <option>Нигер 🇳🇪</option>
+                                <option>Нигерия 🇳🇬</option>
+                                <option>Ниуэ 🇳🇺</option>
+                                <option>Нидерланды 🇳🇱</option>
+                                <option>Никарагуа 🇳🇮</option>
+                                <option>Новая Зеландия 🇳🇿</option>
+                                <option>Норвегия 🇳🇴</option>
+                                <option>Объединённые Арабские Эмираты 🇦🇪</option>
+                                <option>Оман 🇴🇲</option>
+                                <option>Пакистан 🇵🇰</option>
+                                <option>Палау 🇵🇼</option>
+                                <option>Панама 🇵🇦</option>
+                                <option>Папуа — Новая Гвинея 🇵🇬</option>
+                                <option>Парагвай 🇵🇾</option>
+                                <option>Перу 🇵🇪</option>
+                                <option>Польша 🇵🇱</option>
+                                <option>Португалия 🇵🇹</option>
+                                <option>Республика Конго 🇨🇬</option>
+                                <option>Республика Корея 🇰🇷</option>
+                                <option>Республика Македония 🇲🇰</option>
+                                <option>Россия 🇷🇺</option>
+                                <option>Руанда 🇷🇼</option>
+                                <option>Румыния 🇷🇴</option>
+                                <option>Сальвадор 🇸🇻</option>
+                                <option>Самоа 🇼🇸</option>
+                                <option>Сан-Марино 🇸🇲</option>
+                                <option>Сан-Томе и Принсипи 🇸🇹</option>
+                                <option>Саудовская Аравия 🇸🇦</option>
+                                <option>Свазиленд 🇸🇿</option>
+                                <option>Сейшельские острова 🇸🇨</option>
+                                <option>Сенегал 🇸🇳</option>
+                                <option>Сент-Винсент и Гренадины 🇻🇨</option>
+                                <option>Сент-Киттс и Невис 🇰🇳</option>
+                                <option>Сент-Люсия 🇱🇨</option>
+                                <option>Сербия 🇷🇸</option>
+                                <option>Сингапур 🇸🇬</option>
+                                <option>Сирия 🇸🇾</option>
+                                <option>Словакия 🇸🇰</option>
+                                <option>Словения 🇸🇮</option>
+                                <option>Соединённые Штаты Америки 🇺🇸</option>
+                                <option>Соломоновы острова 🇸🇧</option>
+                                <option>Сомали 🇸🇴</option>
+                                <option>Судан 🇸🇩</option>
+                                <option>Суринам 🇸🇷</option>
+                                <option>Сьерра-Леоне 🇸🇱</option>
+                                <option>Таджикистан 🇹🇯</option>
+                                <option>Таиланд 🇹🇭</option>
+                                <option>Тайвань 🇹🇼</option>
+                                <option>Танзания 🇹🇿</option>
+                                <option>Того 🇹🇬</option>
+                                <option>Тонга 🇹🇴</option>
+                                <option>Тринидад и Тобаго 🇹🇹</option>
+                                <option>Тувалу 🇹🇻</option>
+                                <option>Тунис 🇹🇳</option>
+                                <option>Туркменистан 🇹🇲</option>
+                                <option>Турция 🇹🇷</option>
+                                <option>Уганда 🇺🇬</option>
+                                <option>Узбекистан 🇺🇿</option>
+                                <option>Украина 🇺🇦</option>
+                                <option>Уругвай 🇺🇾</option>
+                                <option>Федеративные Штаты Микронезии 🇫🇲</option>
+                                <option>Фиджи 🇫🇯</option>
+                                <option>Филиппины 🇵🇭</option>
+                                <option>Финляндия 🇫🇮</option>
+                                <option>Франция 🇫🇷</option>
+                                <option>Хорватия 🇭🇷</option>
+                                <option>ЦАР 🇨🇫</option>
+                                <option>Острова Кука 🇨🇰</option>
+                                <option>Чад 🇹🇩</option>
+                                <option>Черногория 🇲🇪</option>
+                                <option>Чехия 🇨🇿</option>
+                                <option>Чили 🇨🇱</option>
+                                <option>Швейцария 🇨🇭</option>
+                                <option>Швеция 🇸🇪</option>
+                                <option>Шри-Ланка 🇱🇰</option>
+                                <option>Эквадор 🇪🇨</option>
+                                <option>Экваториальная Гвинея 🇬🇶</option>
+                                <option>Эритрея 🇪🇷</option>
+                                <option>Эстония 🇪🇪</option>
+                                <option>Эфиопия 🇪🇹</option>
+                                <option>ЮАР 🇿🇦</option>
+                                <option>Южный Судан 🇸🇸</option>
+                                <option>Ямайка 🇯🇲</option>
+                                <option>Япония 🇯🇵</option>
+                                
+                            </select>
+                            <input type="text" class="form-control" style="margin-top: 5px; margin-top: 5px;" placeholder="IBAN получателя">
+                            <input type="number" class="form-control" style="margin-top: 5px;" placeholder="Сумма в валюте отправителя">
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                <h2 class="section-heading text-uppercase"><br></h2>
+                <h2 class="section-heading text-uppercase"><br></h2>
+            </div>
+            <div>  <br> </div>
+            <div>  <br> </div>
+            <div>  <br> </div>
+            <div> <br> </div>
+            <div class="masthead-heading text-black"><br>Более 100 платежных систем</div>
+            <h2 class="section-heading text-uppercase"><br></h2>
+            <div class="marquee">
+                <div class="marquee-content"> 
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/alfabank_a539e4fa6a.png" class="w-100">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="../assets/img/banks_marquee/_homecredit-removebg-preview.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="../assets/img/banks_marquee/mts-removebg-preview.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="../assets/img/banks_marquee/raif-removebg-preview.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="../assets/img/banks_marquee/vtb-removebg-preview.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="../assets/img/banks_marquee/gazprom-removebg-preview.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="../assets/img/banks_marquee/sber-removebg-preview.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="../assets/img/banks_marquee/tinkoff-removebg-preview.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/bnp_d459a2182f.png" alt="">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/e_Pay_4153bd8cbf.png" alt="">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/kaspi_dbb23cfe8c.png" alt="">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/moldindconbank_703b84ff9d.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/monobank_653dbff962.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/monese_eb89ddc627.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/payoneer_87f23a8e8a.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/oshad_1a8ecb59ff.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/paygo_8d57a47522.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/privat_6458abd796.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/otpbank_4b001573f5.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/psipay_07ddda2937.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/pumb_80b74d4650.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/revolut_685fd31c0e.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/santander_3113016cc5.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/seb_ffc12a9271.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/siauliu_6dc2a411f6.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/swedenbank_c9b6328105.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/unicredit_a6bd71fd78.png">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://www.fin.do/uploads/universalbank_363928a462.png">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Почему именно мы?</h2>
+                    <h2 class="section-heading text-uppercase"><br></h2>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Удобно</h4>
+                        <p class="text-muted">Наш валютный мост позволяет осуществлять быстрые переведы с минимальной комиссией в более чем 100 платежных системах!<br>Попробуйте сами.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Прозрачно</h4>
+                        <p class="text-muted">Ознакомьтесь с финальной суммой перевода заранее. Перед отправкой вы всегда видите, сколько и за что вы платите.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Безопастно</h4>
+                        <p class="text-muted">Ощутите преимущество мгновенных переводов – деньги доставляются напрямую, без удержания на нашей стороне.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Мы работаем в этих странах</h2>
+                    <h3 class="section-subheading text-muted">Планируете отправлять деньги за границу? Наши услуги доступны в следующих странах:</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="../assets/img/portfolio/1.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Threads</div>
+                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="../assets/img/portfolio/2.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Explore</div>
+                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="../assets/img/portfolio/3.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Finish</div>
+                                <div class="portfolio-caption-subheading text-muted">Identity</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="../assets/img/portfolio/4.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Lines</div>
+                                <div class="portfolio-caption-subheading text-muted">Branding</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="../assets/img/portfolio/5.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Southwest</div>
+                                <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="../assets/img/portfolio/6.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Window</div>
+                                <div class="portfolio-caption-subheading text-muted">Photography</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    -->
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Про нас</h2>
+                    <h3 class="section-subheading text-muted">Exchange24 это простая и удобная платежная система!</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="../assets/img/about/1.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Низкие комиссии</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Наша система работает с использованием криптовалютных мостов, что позволяет избежать санкций и сделать переводы в разы дешевле и быстрее. Забудьте о проблемах с переводами как о страшном сне!</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="../assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Почему выбирают нас?</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Мы - молодая компания, основанная талантливыми российскими программистами. Наша цель - создать качественный и полезный продукт. Для каждой платежной системы мы тщательно подбираем пути перевода чтобы сделать их удобными и безопастными!</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="../assets/img/about/3.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Как это работает?</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">От вас нужно всего лишь сделать аккаунт, подтвердить свой номер и выбрать систему получателя! Никаких занудных проверок и подтверждений.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="../assets/img/about/4.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Ответ западным санкциям</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">С началом специальной военной операции на Украине, многие из нас столкнулись с трудностями межнациональных переводов. Мы считаем, что эти ограничения являются абсолютно неправильными и нашей разработкой хотим это доказать!</p></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <script type="module" src="../js/main.js"></script>
+   
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Есть вопрос?</h2>
+                    <h3 class="section-subheading text-muted">В случае проблем или пожеланий вы всегда можете связаться с нами!</h3>
+                </div>
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- Name input-->
+                                <input class="form-control" id="name" type="text" placeholder="Ваше имя *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Необходимо написать имя.</div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Email address input-->
+                                <input class="form-control" id="email" type="email" placeholder="Ваша почта *" data-sb-validations="required,email" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Необходим адрес электронной почты.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Введите корректный адрес.</div>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <input class="form-control" id="phone" type="tel" placeholder="Номер телефона *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Необходим номер телефона.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <textarea class="form-control" id="message" placeholder="Ваше сообщение *" data-sb-validations="required"></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Сообщение пустое.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center text-white mb-3">
+                            <div class="fw-bolder">Заявка успешно отправлена!</div>
+                            Чтобы активировать заявку, войдите в аккуаунт.
+                            <br />
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Произошла ошибка!</div></div>
+                    <!-- Submit Button-->
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Отправить заявку</button></div>
+                </form>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Global Exchange24 2022</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Политика приватности</a>
+                        <a class="link-dark text-decoration-none" href="#!">Правила использования</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Bootstrap core JS-->
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script type="module" src="../js/scripts.js"></script>   
+        <script type="module" src="../js/main.js"></script>
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
